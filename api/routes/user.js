@@ -13,7 +13,7 @@ userRouter.get('/seed', expressAsyncHandler(async(req, res) => {
     res.send({createUser})
 }))
 
-// SignIn request
+// SignIn Route
 userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
     const user = await User.findOne({ email: req.body.email })
 
@@ -32,3 +32,8 @@ userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
     }
     res,status(401).send({ message: 'Invalid Email or Password'})
 }))
+
+// SignUp Route
+userRouter.post('/signup',expressAsyncHandler(async(req,res)=>{
+
+}
