@@ -69,3 +69,6 @@ userRouter.delete('/address/:id', isAuth, expressAsyncHandler(async(req, res) =>
     res.send({id:req.params.id})
 }))
 
+userRouter.put('/address/:id',isAuth,expressAsyncHandler(async(req,res)=>{
+    const address=await Address.findById(req.params.id)
+    
