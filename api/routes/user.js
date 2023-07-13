@@ -13,3 +13,21 @@ userRouter.get('/seed', expressAsyncHandler(async(req, res) => {
     res.send({createUser})
 }))
 
+// SignIn request
+userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
+    const user = await User.findOne({ email: req.body.email })
+
+    if(user) {
+        if(bcrypt.compareSync(req.body.password, user.password)) {
+            res.send({
+                _id:user._id,
+                   name:user.name,
+                   eamil:user.email,
+                   isAdmin:user.isAdmin,
+                   mobNo:user?.mobNo,
+                   token:genrateToken(user)
+            })
+            return;
+        }
+    }
+}))
