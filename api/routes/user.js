@@ -103,3 +103,9 @@ const address = await newAdress.save()
 res.send(address)
 
 }))
+
+userRouter.put('/updateProfile',isAuth,expressAsyncHandler(async(req,res)=>{
+    const user = await User.findById(req.user._id)
+    if(user) {
+        
+    }
