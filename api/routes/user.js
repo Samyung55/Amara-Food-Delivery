@@ -71,4 +71,18 @@ userRouter.delete('/address/:id', isAuth, expressAsyncHandler(async(req, res) =>
 
 userRouter.put('/address/:id',isAuth,expressAsyncHandler(async(req,res)=>{
     const address=await Address.findById(req.params.id)
-    
+    if(address) {
+        address.name= req.body.name;
+                address.mobNo=req.body.mobNo
+                address.pinCode=req.body.pinCode
+                address.address=req.body.address
+                address.town=req.body.town
+                address.state=req.body.state
+                address.city=req.body.city
+                const newAddress= await address.save()
+                res.send(newAddress)
+    }
+    else {
+        res.status(404).send({message:'Address not found!'})
+    }
+}))
