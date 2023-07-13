@@ -59,5 +59,13 @@ userRouter.post('/signup',expressAsyncHandler(async(req,res)=>{
 // Adding Address
 
 userRouter.get('/shipping/:id',expressAsyncHandler(async(req,res)=>{
-    
-}
+    const id = req.params.id
+    const address = await Address.find({userId: id})
+    res.send(address)
+}))
+
+userRouter.delete('/address/:id', isAuth, expressAsyncHandler(async(req, res) => {
+    await Address.deleteOne({_id:req.params.id})
+    res.send({id:req.params.id})
+}))
+
