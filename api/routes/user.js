@@ -107,5 +107,19 @@ res.send(address)
 userRouter.put('/updateProfile',isAuth,expressAsyncHandler(async(req,res)=>{
     const user = await User.findById(req.user._id)
     if(user) {
-        
+        user.name = req.body.name;
+        user.mobNo = req.bodymobNo
+        const updatedUser = await user.save();
+        res.send({
+            _id: user._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            mobNo: updatedUser.mobNo,
+            token: generateToken(updatedUser),
+        })
     }
+    else {
+        res.status(404).send({ message: "User not found" })
+    }
+}))
