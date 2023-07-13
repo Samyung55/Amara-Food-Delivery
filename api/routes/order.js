@@ -1,9 +1,9 @@
-import express from "express";
-import expressAsyncHandler from "express-async-handler";
-import nodemailer from 'nodemailer'
-import {google} from 'googleapis'
-import Order from "../models/order.js";
-import { emailTemplate, isAuth } from "../utlis.js";
+const express = require("express")
+const expressAsyncHandler = require("express-async-handler");
+const nodemailer = require('nodemailer')
+const {google} = require('googleapis')
+const Order = require("../models/order.js")
+const { emailTemplate, isAuth } = require("../utlis.js");
 
 const orderRouter= express.Router()
 
