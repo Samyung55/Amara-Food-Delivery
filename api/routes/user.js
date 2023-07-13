@@ -56,3 +56,8 @@ userRouter.post('/signup',expressAsyncHandler(async(req,res)=>{
     }
 }));
 
+// Adding Address
+
+userRouter.get('/shipping/:id',expressAsyncHandler(async(req,res)=>{
+    
+}
