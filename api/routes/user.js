@@ -8,3 +8,8 @@ const Address = require("../models/address")
 
 const userRouter = express.Router();
 
+userRouter.get('/seed', expressAsyncHandler(async(req, res) => {
+    const createUser = await User.insertMany(data.users)
+    res.send({createUser})
+}))
+
