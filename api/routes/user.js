@@ -86,3 +86,20 @@ userRouter.put('/address/:id',isAuth,expressAsyncHandler(async(req,res)=>{
         res.status(404).send({message:'Address not found!'})
     }
 }))
+
+userRouter.post('/address',expressAsyncHandler(async(req,res)=>{
+    console.log(req.body)
+const newAdress = Address({
+       name:req.body.name,
+       mobNo:req.body.mobNo,
+       pinCode:req.body.pinCode,
+       address:req.body.address,
+       town:req.body.town,
+       state:req.body.state,
+       city:req.body.city,
+       userId:req.body.userId
+})
+const address = await newAdress.save()
+res.send(address)
+
+}))
