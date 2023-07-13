@@ -123,3 +123,5 @@ userRouter.put('/updateProfile',isAuth,expressAsyncHandler(async(req,res)=>{
         res.status(404).send({ message: "User not found" })
     }
 }))
+
+export default userRouter
