@@ -17,3 +17,7 @@ mongoose.connect(uri,
     app.use((err,req,res,next)=>{
         res.status(500).send({message:err.message})
     })
+
+    app.listen(PORT,()=>{
+        console.log(`server running at http://localhost:${PORT}`)
+    });
