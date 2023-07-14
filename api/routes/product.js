@@ -12,3 +12,13 @@ productRouter.get('/',expressAsyncHandler(async(req,res)=>{
     res.send(products)
   }));
   
+  productRouter.get('/search',expressAsyncHandler(async(req,res)=>{
+    let regEx = new RegExp(req.query.name,'i');
+    const serachedProducts = await Product.find({name:regEx})
+    if(serachedProducts){
+        res.send(serachedProducts)
+
+    }else{
+      res.status(402).send({message:'Opps No product found!!'})
+    }
+   }))
