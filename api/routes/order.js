@@ -83,3 +83,5 @@ orderRouter.get('/:id',isAuth,expressAsyncHandler(async(req,res)=>{
     res.status(404).send({message:'Order Not Found'})
    }
 }))
+
+export default orderRouter;
