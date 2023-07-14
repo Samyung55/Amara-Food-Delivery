@@ -74,3 +74,13 @@ expressAsyncHandler(async (req,res)=>{
     res.send({products:createProducts})
 })
 )
+
+productRouter.get('/:id',expressAsyncHandler(async(req,res)=>{
+    const product = await Product.findById(req.params.id)
+    if(product){
+        res.send(product)
+    }else{
+        res.status(404).send({message:'Product not found!'})
+    }
+}))
+
