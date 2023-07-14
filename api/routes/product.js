@@ -54,3 +54,10 @@ productRouter.post('/wishlist',isAuth,expressAsyncHandler(async(req,res)=>{
     const products = await newProduct.save();
     res.send(products)
 }))
+
+productRouter.get('/wishlist',isAuth,expressAsyncHandler(async(req,res)=>{
+
+    const items = await Wishlist.find({userId:req.user._id});
+    res.send(items)
+
+}))
