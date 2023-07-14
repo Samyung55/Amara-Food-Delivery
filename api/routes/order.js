@@ -24,3 +24,22 @@ orderRouter.get('/admin-orders',expressAsyncHandler(async(req,res)=>{
     res.send(orders)
 }))
 
+orderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
+    if(req.body.orderItems.length===0){
+     res.status(400).send({message:'cart is empty!'})
+    }
+    else{
+       const accessToken = oAuth2Client.getAccessToken();
+        const newOrder= new Order({
+           orderItems:req.body.orderItems,
+           shippingAddress:req.body.shippingAddress,
+           paymentMethod:req.body.paymentMethod,
+           itemsPrice:req.body.itemsPrice,
+           totalprice:req.body.totalprice,
+           shippingPrice:req.body.shippingPrice,
+           paymentId:req.body.paymentId,
+           userId:req.user._id,
+           email:req.body.email,
+           userName:req.body.userName
+        })
+       
