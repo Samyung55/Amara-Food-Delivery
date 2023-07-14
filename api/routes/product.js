@@ -21,4 +21,25 @@ productRouter.get('/',expressAsyncHandler(async(req,res)=>{
     }else{
       res.status(402).send({message:'Opps No product found!!'})
     }
+}))
+
+productRouter.post('/wishlist',isAuth,expressAsyncHandler(async(req,res)=>{
+    const item = await Wishlist.findOne({product:req.body._id});
+    if(item){
+     res.status(409).send({message:'Item Already exits'});
+    }
+    else{
+       const newItem = new Wishlist({
+           name:req.body.name,
+           image:req.body.image,
+           price:req.body.price,
+           rating:req.body.rating,
+           description:req.body.description,
+           userId:req.user._id,
+           product:req.body._id
+       })
+       const wishlistItem = await newItem.save();
+       res.send(wishlistItem)
+    }
    }))
+   
