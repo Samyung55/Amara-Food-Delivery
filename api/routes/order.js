@@ -43,7 +43,7 @@ orderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
            userName:req.body.userName
         })
         const order = await newOrder.save()
-        
+
        let transporter = nodemailer.createTransport({
          service: "gmail",
          auth: {
@@ -55,3 +55,14 @@ orderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
            accessToken:accessToken
          },
        });
+
+        // send mail with defined transport object
+   let info = await  transporter.sendMail({
+    from: 'jaydeepshelake2001@gmail.com', // sender address
+    to: order.email, // list of receivers
+    subject: "Order placed Successfuly🎉",
+    text: "Hello world?", // Subject line
+    html:emailTemplate(order), // html body
+  });
+
+  console.log("Message sent: %s", info.messageId);
