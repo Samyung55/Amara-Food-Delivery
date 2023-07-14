@@ -42,4 +42,16 @@ orderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
            email:req.body.email,
            userName:req.body.userName
         })
-       
+        const order = await newOrder.save()
+        
+       let transporter = nodemailer.createTransport({
+         service: "gmail",
+         auth: {
+           type:'OAuth2',
+           user:'jaydeepshelake2001@gmail.com' ,
+           clientId:CLIENT_ID,
+           clientSecret:CLIENT_SECRET,
+           refreshToken:REFRESH_TOKEN,
+           accessToken:accessToken
+         },
+       });
