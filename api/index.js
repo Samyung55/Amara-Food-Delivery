@@ -3,3 +3,9 @@ app.use(express.json({ limit: '30mb', extended: true }))  // to parse body in js
 app.use(express.urlencoded({limit: '30mb',extended:true}))
 const PORT= process.env.PORT || 5000
 
+mongoose.connect(uri,
+    err => {
+        if(err) throw err;
+        console.log('connected...')
+    });
+
