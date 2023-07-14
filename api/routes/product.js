@@ -43,3 +43,14 @@ productRouter.post('/wishlist',isAuth,expressAsyncHandler(async(req,res)=>{
     }
    }))
    
+   productRouter.post('/add-product',expressAsyncHandler(async(req,res)=>{
+    const newProduct = new Product({
+        name:req.body.name,
+        description:req.body.description,
+        image:req.body.image,
+        category:req.body.category,
+        price:req.body.price
+    })
+    const products = await newProduct.save();
+    res.send(products)
+}))
