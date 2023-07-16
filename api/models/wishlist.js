@@ -1,6 +1,6 @@
-const moongoose = require("mongoose")
+const mongoose = require("mongoose")
 
-const wishListSchema = new moongoose.Schema({
+const wishListSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -23,16 +23,15 @@ const wishListSchema = new moongoose.Schema({
         required:true,
     },
     userId:{   
-        type:moongoose.Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:'User',
         required:true
     },
     product:{
-        type:moongoose.Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:'Product',
         required:true
     }
     
 })
-const Wishlist= moongoose.model('Wishlist',wishListSchema)
-export default Wishlist;
+module.exports = mongoose.model('Wishlist', wishListSchema)
