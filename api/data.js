@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'
+const bcrypt = require("bcrypt")
 const data ={
     products: [
         {
@@ -42,4 +42,4 @@ const data ={
 
 }
 
-export default data
+module.exports = data
