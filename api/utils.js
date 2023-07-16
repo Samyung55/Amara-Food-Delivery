@@ -1,5 +1,6 @@
-import jwt from 'jsonwebtoken'
-export const genrateToken =(user)=>{
+const jwt = require('jsonwebtoken')
+
+ const generateToken = (user) => {
     return jwt.sign({
         _id:user._id,
         name:user.name,
@@ -9,7 +10,8 @@ export const genrateToken =(user)=>{
         expiresIn:'30d',
     })
 }
-export const isAuth=(req,res,next)=>{
+
+ const isAuth= (req, res, next) =>{
     const authorization=req.headers.authorization
    
     if(authorization){
@@ -31,7 +33,7 @@ export const isAuth=(req,res,next)=>{
 }
 
 
-export const emailTemplate=(order)=>{
+ const emailTemplate=(order)=>{
     return `
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -753,3 +755,9 @@ ${order.orderItems.map((item)=>{
     
     `
 }
+
+module.exports = {
+  generateToken,
+  isAuth,
+  emailTemplate,
+};
