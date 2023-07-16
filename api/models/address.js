@@ -1,6 +1,6 @@
-const moongoose = require("mongoose")
+const mongoose = require("mongoose")
 
-const addressSchema = new moongoose.Schema({
+const addressSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -37,5 +37,4 @@ const addressSchema = new moongoose.Schema({
     timestamps: true
 })
 
-const Address = mongoose.model('Address',addressSchema)
-export default Address;
+module.exports = mongoose.model('Address', addressSchema)
