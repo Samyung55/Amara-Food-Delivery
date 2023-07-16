@@ -3,7 +3,7 @@ const expressAsyncHandler = require("express-async-handler");
 const nodemailer = require('nodemailer')
 const {google} = require('googleapis')
 const Order = require("../models/order.js")
-const { emailTemplate, isAuth } = require("../utlis.js");
+const { emailTemplate, isAuth } = require("../utils.js");
 
 const orderRouter= express.Router()
 
@@ -84,4 +84,4 @@ orderRouter.get('/:id',isAuth,expressAsyncHandler(async(req,res)=>{
    }
 }))
 
-export default orderRouter;
+module.exports = orderRouter;
