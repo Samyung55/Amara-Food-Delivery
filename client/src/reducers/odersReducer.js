@@ -16,6 +16,33 @@ export const orderReducer = (state={loading:false,sucess:false}, action) => {
             return {...state, paymentMethod: action.payload}
 
         case CREATE_ORDER_REQUEST:
-            return {...state}
+            return {...state, loading: true}
+
+        case CREATE_ORDER:
+            return {...state, loading: false, success: true, order: action.payload}
+
+        case CREATE_ORDER_ERROR: 
+            return {...state, loading: false, success: false, error: action.payload}
+
+        default:
+            return state;
     }
 }
+
+export const orderDetail = (state = {loading: false}, action) => {
+    switch (action.type) {
+        case ORDER_DETAILS_REQURST:
+            return {loading: true}
+
+        case ORDER_DETAIlS:
+            return {loading: false, order: action.payload}
+
+        case ORDER_DETAILS_FAIL:
+            return {loading: false, error: action.payload}
+
+        default:
+            return state
+    }
+}
+
+exp
