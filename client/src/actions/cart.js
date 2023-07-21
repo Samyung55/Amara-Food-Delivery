@@ -2,5 +2,21 @@ import pizza from "../apis/pizza";
 import { ADD_TO_CART, DELETE_ITEM, ERROR, UPDATE_QTY } from "./types"
 
 export const addToCart= ( item ) => async (dispatch,getState) => {
-   
+    try {
+        //  const {data} = pizza.get(`/api/pizzas/${data.id}`)
+         dispatch({type:ADD_TO_CART,payload:{
+             name:item.name,
+             price:item.price,
+             image:item.image,
+             description:item.description,
+             product:item._id,
+             customItem:item.customItem?item.customItem:[],
+             isCustom:item.isCustom?item.isCustom:false,
+             qty:1
+            }
+            })
+        localStorage.setItem('cartItems',JSON.stringify( getState().cart.cartItems)) 
+     } catch (error) {
+         dispatch({type:ERROR,payload:'Failed to Add!'})
+     }  
 }
