@@ -32,3 +32,13 @@ export const upadteCart =(product,qty)=>async(dispatch,getState)=>{
     }
 }
 
+export const deleteItem = (id)=>async(dispatch,getState)=>{
+    try {
+        dispatch({type:DELETE_ITEM,payload:id})
+      localStorage.setItem('cartItems',JSON.stringify( getState().cart.cartItems)) 
+  
+    } catch (error) {
+      dispatch({type:ERROR,payload:'Failed to Delete!'})
+        
+    }
+  }
