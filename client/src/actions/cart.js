@@ -20,3 +20,15 @@ export const addToCart= ( item ) => async (dispatch,getState) => {
          dispatch({type:ERROR,payload:'Failed to Add!'})
      }  
 }
+
+export const upadteCart =(product,qty)=>async(dispatch,getState)=>{
+    // console.log({...product,qty:qty})
+    try {
+        dispatch({type:UPDATE_QTY,payload:{...product,qty:qty}})
+    localStorage.setItem('cartItems',JSON.stringify( getState().cart.cartItems)) 
+
+    } catch (error) {
+        dispatch({type:ERROR,payload:'Failed to Update!'})
+    }
+}
+
