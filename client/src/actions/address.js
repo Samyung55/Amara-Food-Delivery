@@ -23,3 +23,15 @@ export const getAddress = (id) => async dispatch => {
         }) 
     }
 }
+
+export const deleteAddress=(id)=>async dispatch=>{
+    try {
+        const {data} =await pizza.delete(`/api/users/address/${id}`)
+       //  console.log(data)
+        dispatch({type:DELETE_ADDRESS,payload:data})
+    } catch (error) {
+       dispatch({type:ADDRESS_ERROR,payload:error.response&&error.response.data.message?error.response.data.message:error.message})
+    }
+}
+
+
