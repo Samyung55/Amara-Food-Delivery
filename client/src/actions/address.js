@@ -10,3 +10,16 @@ export const addAddress=(name, mobNo, pinCode, address, town, state, city, userI
             payload:error.response && error.response.data.message ? error.response.data.message:error.message })
     }
 }
+
+export const getAddress = (id) => async dispatch => {
+    try {
+        const data = await pizza.get(`/api/users/shipping${id}`)
+        dispatch({type: GET_ADDRESS, payload: data})
+    }
+    catch(error) {
+        dispatch({
+            type: ADDRESS_ERROR, 
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message 
+        }) 
+    }
+}
