@@ -34,4 +34,19 @@ export const deleteAddress=(id)=>async dispatch=>{
     }
 }
 
+export const updateAddress=(name,mobNo,pinCode,address,town,state,city,userId,_id)=>async (dispatch,getState)=>{
+     try {
 
+        const user = getState().user?.user;
+         const {data}=await pizza.put(`/api/users/address/${_id}`,{name,mobNo,pinCode,address,town,state,city,userId},{
+            headers:{
+                Authorization: `Bearer ${user.token}` 
+             }
+         })
+         console.log(data)
+         dispatch({type:UPDATE_ADDRESS,payload:data})
+     } catch (error) {
+        dispatch({type:ADDRESS_ERROR,payload:error.response&&error.response.data.message?error.response.data.message:error.message})
+         
+     }
+ }
