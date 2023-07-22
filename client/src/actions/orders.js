@@ -31,9 +31,15 @@ export const placeOrder=(order)=> async (dispatch,getState)=>{
             inStockItem: inStockItem-item.qty
            }).then(()=>console.log("added sucessfully"));
         });
-    })
+     })
+      dispatch({type:CREATE_ORDER,payload:data.order})
+      dispatch({type:DELETE_CART})
+      localStorage.removeItem('cartItems');
     }
-    catch {
-
+    catch (error) {
+        dispatch({ 
+            type: CREATE_ORDER_ERROR,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        })
     }
 }
