@@ -4,3 +4,12 @@ import { ADD_WISHLIST_ERROR, ADD_WISHLIST_REQ, ADD_WISHLIST_SUCCESS ,DELETE_WISH
 export const addToWishlist =(item)=>async (dispatch,getState)=>{
     console.log(item)
     dispatch({type:ADD_WISHLIST_REQ,payload:item})
+    try {
+        const user = getState().user?.user;
+        const {data}=await pizza.post('/api/products/wishlist',item,{
+            headers:{
+                Authorization: `Bearer ${user.token}`
+             }
+        })
+        // console.log(data)
+        dispatch({type:ADD_WISHLIST_SUCCESS,payload:data})
