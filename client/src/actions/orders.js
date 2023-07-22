@@ -12,9 +12,16 @@ export const placeOrder=(order)=> async (dispatch,getState)=>{
     console.log(order)
 
     try{
+        const user = getState().user?.user;
+        const { data } = await pizza.post('/api/orders', order {
+            headers: {
+                Authorization: `Bearer ${user.token}`
+            }
+        })
 
+        
     }
     catch {
-        
+
     }
 }
