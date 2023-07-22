@@ -45,5 +45,13 @@ export const placeOrder=(order)=> async (dispatch,getState)=>{
 }
 
 export const getOrderDetails = (id) => async (dispatch, getState) => {
-    
+    dispatch({ type: ORDER_DETAILS_REQURST})
+    try {
+        const user = getState().user?.user;
+        const {data} = await pizza.get(`/api/orders/${id}`, {
+            headers: {
+                Authorization: `Bearer ${user.token}`
+            }
+        })
+    }
 }
