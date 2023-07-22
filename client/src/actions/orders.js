@@ -13,7 +13,7 @@ export const placeOrder=(order)=> async (dispatch,getState)=>{
 
     try{
         const user = getState().user?.user;
-        const { data } = await pizza.post('/api/orders', order {
+        const { data } = await pizza.post('/api/orders', order, {
             headers: {
                 Authorization: `Bearer ${user.token}`
             }
