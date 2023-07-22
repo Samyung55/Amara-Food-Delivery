@@ -7,3 +7,14 @@ export const selectPayment = (payment) => async dispatch => {
     dispatch({ type: PAYMENT_METHOD, payload: payment})
 }
 
+export const placeOrder=(order)=> async (dispatch,getState)=>{
+    dispatch({type:CREATE_ORDER_REQUEST,payload:order})
+    console.log(order)
+
+    try{
+
+    }
+    catch {
+        
+    }
+}
