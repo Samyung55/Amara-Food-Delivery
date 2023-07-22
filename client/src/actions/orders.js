@@ -53,5 +53,9 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${user.token}`
             }
         })
+        console.log(data)
+        dispatch({ type: ORDER_DETAILS, payload: data})
+    } catch (error) {
+        dispatch({type:ORDER_DETAILS_FAIL,payload:error.response&&error.response.data.message?error.response.data.message:error.message})
     }
 }
