@@ -13,3 +13,8 @@ export const addToWishlist =(item)=>async (dispatch,getState)=>{
         })
         // console.log(data)
         dispatch({type:ADD_WISHLIST_SUCCESS,payload:data})
+    } catch (error) {
+        dispatch({type:ADD_WISHLIST_ERROR,payload:error.response&&error.response.data.message?error.response.data.message:error.message})
+    }
+}
+
