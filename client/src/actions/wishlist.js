@@ -18,3 +18,17 @@ export const addToWishlist =(item)=>async (dispatch,getState)=>{
     }
 }
 
+export const  getWishlist=()=>async (dispatch,getState)=>{
+    try {
+        const user = getState().user?.user;
+        const {data}=await pizza.get('/api/products/wishlist',{
+            headers:{
+                Authorization: `Bearer ${user.token}` 
+             }
+        })
+        dispatch({type:GET_WISHLIST,payload:data})
+    } catch (error) {
+    dispatch({type:ADD_WISHLIST_ERROR,payload:error.response&&error.response.data.message?error.response.data.message:error.message})
+        
+    }
+}
