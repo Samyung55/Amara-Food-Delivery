@@ -11,5 +11,22 @@ const Header = () => {
     const navigate = useNavigate();
     const search = useSelector(state => state.search)
     const dispatch = useDispatch()
-    const handleSearch
+
+    const handleSearch = (e) => {
+        e.preventDefault()
+        dispatch(searchProducts(name))
+        navigate(`/search?=${name}`)
+    }
+
+    return (
+        <div className='header'>
+            <div className='logo'>
+                <div className='burger' onClick={() => dispatch(showSideBar(true))}>
+                    <HiMenuAlt1 />
+                </div>
+
+                
+            </div>
+        </div>
+    )
 }
