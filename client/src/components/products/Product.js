@@ -19,7 +19,19 @@ const Product = ({ category }) => {
       },[category])
 
       return (
-      
+        <div className='all-products'>
+        {data.length===0||loading?(
+        <>
+          {[1,2,3].map(n=><div className='product-card' key={n}><SkeletonArticle key={n}/></div>)}
+        </>
+        ):<ProductCard product={data}/>}
+        <Message showModal={show}
+        msg={"Opps!,Something went wrong"}
+        img={"https://image.flaticon.com/icons/png/512/835/835408.png"}
+        type="error"
+        closeModal={setShow}
+        />  
+      </div>
        
      )
 }
