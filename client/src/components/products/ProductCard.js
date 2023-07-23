@@ -83,12 +83,22 @@ const ProductCard = ({ product }) => {
                     value={item.id} onClick={(e) => wishlist.wishlistItems?.find(x => x.product === item._id)
                     ? handleRemoveWishList(item._id) : handleWishlist(item)}>
                         {getState(item, item._id)}    
-                    <div/>}
-                    
+                    </div>}
+                    <div className='img'>
+                        <img src={item?.image} alt='' />
+                    </div>
+                    <div className="des">
+                        <h3>{item?.name}</h3>
+                        <div className='starts'>{getStarts(item?.rating)}</div>
+                        <p className='price'> <span>Rs.</span>{item?.price}</p>
+                      </div>
+                      <div className="add-button" onClick={()=>cartHandler(item)}>
+                          <IoMdAdd/>
+                      </div>
                 </div>
             ))
         }
         </>
-      )
-}
+    )
+    }
 }
