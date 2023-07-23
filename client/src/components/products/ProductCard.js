@@ -42,4 +42,19 @@ const ProductCard = ({ product }) => {
         dispatch(getWishlist())
     }, [])
 
+    const getStarts=(rating)=>{
+        if(rating>4){
+            return (<><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></>);
+        }
+        if(rating===4 ){
+            return (<><FaStar/><FaStar/><FaStar/><FaStar/><FaRegStar/></>);
+        }
+        if(rating>3){
+            return (<><FaStar/><FaStar/><FaStar/><FaStarHalfAlt/><FaRegStar/></>);
+        }
+        if(rating===3){
+            return (<><FaStar/><FaStar/><FaStar/><FaRegStar/> <FaRegStar/></>);
+        }
+        
+    }
 }
