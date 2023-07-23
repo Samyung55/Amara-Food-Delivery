@@ -10,5 +10,14 @@ const MainArea = () => {
     const user = useSelector(state => state.user)
     const [category, setCategory] = useState('pizza')
 
-    
+    return (
+        <div className='mainarea'>
+            <Header />
+            <div className='banner'>
+                <div className='img'>
+                    <img src={pizzaboy} alt='' />
+                </div>
+            </div>
+        </div>
+    )
 }
