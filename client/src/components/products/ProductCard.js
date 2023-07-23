@@ -7,3 +7,16 @@ import { addToCart } from '../../actions/cart';
 import { addToWishlist ,deleteItemFromWishlist,getWishlist} from '../../actions/wishlist';
 import { useLocation } from 'react-router-dom';
 import Spinner from '../Spinner';
+
+const ProductCard = ({ product }) => {
+    const user = useSelector(state => state.user.user)
+    const wishlist = useSelector(state => state.wishlist)
+    const [currentItemClicked, setCurrentItem] = useState()
+
+    const dispatch = useDispatch();
+    const cartHandler = (item) => {
+        dispatch(addToCart(item))
+    }
+
+    
+}
