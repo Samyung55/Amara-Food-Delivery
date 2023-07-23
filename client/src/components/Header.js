@@ -6,3 +6,10 @@ import {useDispatch, useSelector} from 'react-redux'
 import { searchProducts, showSideBar } from '../actions'
 import Spinner from './Spinner'
 
+const Header = () => {
+    const [name, setName] = useState('')
+    const navigate = useNavigate();
+    const search = useSelector(state => state.search)
+    const dispatch = useDispatch()
+    const handleSearch
+}
