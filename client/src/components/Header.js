@@ -29,9 +29,14 @@ const Header = () => {
             </div>
             <form onSubmit={handleSearch} className='search-bar'>
                 <div className='input'>
-                    
+                    <input onChange={(e) => setName(e.target.value)} type='text'
+                    placeholder='Search for Food' />
+                    {search?.loading?(<div>
+                        <Spinner />
+                    </div>) : <FiSearch onClick={handleSearch} />}
                 </div>
             </form>
         </div>
     )
 }
+
