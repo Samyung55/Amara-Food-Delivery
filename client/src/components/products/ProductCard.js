@@ -14,9 +14,32 @@ const ProductCard = ({ product }) => {
     const [currentItemClicked, setCurrentItem] = useState()
 
     const dispatch = useDispatch();
+
     const cartHandler = (item) => {
         dispatch(addToCart(item))
     }
 
-    
+    const pathname = useLocation().pathname
+
+    const handleWishlist = (item) => {
+        setCurrentItem(item._id)
+        dispatch(addToWishlist({
+         name:item?.name,
+         image:item?.image,
+         rating:item?.rating,
+         price:item?.price,
+         _id:item?._id,
+         description:item?.description
+        }))
+    }
+
+    const handleRemoveWishList = (id, i) => {
+        setCurrentItem(id)
+        dispatch(deleteItemFromWishlist)
+    }
+
+    useEffect(() => {
+        dispatch(getWishlist())
+    }, [])
+
 }
