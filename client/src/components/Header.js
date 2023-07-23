@@ -25,8 +25,13 @@ const Header = () => {
                     <HiMenuAlt1 />
                 </div>
 
-                
+                <Link to="/"><img src='https://cdn-icons-png.flaticon.com/512/4039/4039232.png' alt='logo' /></Link>
             </div>
+            <form onSubmit={handleSearch} className='search-bar'>
+                <div className='input'>
+                    
+                </div>
+            </form>
         </div>
     )
 }
