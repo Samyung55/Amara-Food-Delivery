@@ -18,4 +18,8 @@ const Product = ({ category }) => {
         }
       },[category])
 
+      return (
+      
+       
+     )
 }
