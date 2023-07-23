@@ -75,9 +75,20 @@ const ProductCard = ({ product }) => {
       }
 
       return (
-    <>
-
-    </>
+        <>
+        {
+            product?.map((item, i) => (
+                <div key={i} className='product-card'>
+                    {pathname !== "/wishlist" && <div className='love'
+                    value={item.id} onClick={(e) => wishlist.wishlistItems?.find(x => x.product === item._id)
+                    ? handleRemoveWishList(item._id) : handleWishlist(item)}>
+                        {getState(item, item._id)}    
+                    <div/>}
+                    
+                </div>
+            ))
+        }
+        </>
       )
 }
 }
