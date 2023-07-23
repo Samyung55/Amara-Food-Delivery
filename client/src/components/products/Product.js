@@ -35,3 +35,5 @@ const Product = ({ category }) => {
        
      )
 }
+
+export default Product
