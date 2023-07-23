@@ -6,3 +6,9 @@ import pizzaSilce from '../assests/pizzaSilce.png'
 import Product from './products/Product'
 import { useSelector } from 'react-redux'
 
+const MainArea = () => {
+    const user = useSelector(state => state.user)
+    const [category, setCategory] = useState('pizza')
+
+    
+}
