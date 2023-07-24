@@ -19,5 +19,11 @@ const CartItem = ({item}) => {
     const decreaseQty=()=>{
         setQty(qty-1)
         dispatch(upadteCart(item,Number(qty-1)))
-     }
+    }
+
+    const removeFormCartHandler = () => {
+        dispatch(deleteItem(item.product))
+    }
+
+    
 }
