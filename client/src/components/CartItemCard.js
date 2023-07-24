@@ -30,7 +30,16 @@ const CartItem = ({item}) => {
             <div className='img'>
                 <img src={item.image} alt={item.name} />
             </div>
-            
+
+            <div className='des'>
+                <h3>{item.name}</h3>
+                <p>pty:{item.qty}</p>
+                <div className='handle'>
+                    <div className='qty'>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
