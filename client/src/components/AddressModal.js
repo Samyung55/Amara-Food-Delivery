@@ -6,7 +6,7 @@ import { addAddress, updateAddress } from '../actions/address';
 const AddressModal = ({show, setShow, addressToEdit}) => {
     const [pinCode, setPinCode] = useState('');
     const [name, setName] = useState('')
-    const [mobno, setMobNo] = useState('')
+    const [mobNo, setMobNo] = useState('')
     const [address, setAddress] = useState('')
     const [state,setState]=useState('')
     const [town,setTown]=useState('')
@@ -36,5 +36,9 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
     //    getPinCode()
     // },[])
 
-    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addAddress(name, mobNo, pinCode, address, town, state, city, user._id))
+        setShow(false)
+    }
 }
