@@ -40,6 +40,9 @@ const CartItem = ({item}) => {
                        <div className='item-qty'>{qty}</div>
                        <div className='btn' onClick={increaseQty}><IoMdAdd/></div>
                     </div>
+                    <div className="delete" onClick={reomveFormCartHandler}>
+                     <MdDelete/>
+                   </div>
                 </div>
             </div>
         </div>
