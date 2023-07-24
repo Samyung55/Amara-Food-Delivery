@@ -23,4 +23,6 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
            setCity(addressToEdit.city)
         }
     }, [addressToEdit])
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.user.user)
 }
