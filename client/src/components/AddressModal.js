@@ -64,5 +64,9 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
               <button type='submit'>{addressToEdit?'UPDATE ADDRESS':'ADD ADDRESS'}</button>
           </div>
           </form>
+
+          </div>
+
+  </div>
     )
 }
