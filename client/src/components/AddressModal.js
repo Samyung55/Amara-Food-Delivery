@@ -70,3 +70,6 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
   </div>
     )
 }
+
+
+export default AddressModal;
