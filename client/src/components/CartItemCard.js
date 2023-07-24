@@ -25,5 +25,12 @@ const CartItem = ({item}) => {
         dispatch(deleteItem(item.product))
     }
 
-    
+    return (
+        <div className='cart-card'>
+            <div className='img'>
+                <img src={item.image} alt={item.name} />
+            </div>
+            
+        </div>
+    )
 }
