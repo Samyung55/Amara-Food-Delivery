@@ -41,4 +41,10 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
         dispatch(addAddress(name, mobNo, pinCode, address, town, state, city, user._id))
         setShow(false)
     }
+
+    const handleUpdateAddress=(e)=>{
+        e.preventDefault()
+       dispatch(updateAddress(name,mobNo,pinCode,address,town,state,city,user._id,addressToEdit._id))
+       setShow(false)
+    }
 }
