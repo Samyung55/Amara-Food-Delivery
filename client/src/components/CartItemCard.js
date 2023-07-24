@@ -36,7 +36,9 @@ const CartItem = ({item}) => {
                 <p>pty:{item.qty}</p>
                 <div className='handle'>
                     <div className='qty'>
-                        
+                    <div className='btn' onClick={decreaseQty}><IoMdRemove/></div>
+                       <div className='item-qty'>{qty}</div>
+                       <div className='btn' onClick={increaseQty}><IoMdAdd/></div>
                     </div>
                 </div>
             </div>
