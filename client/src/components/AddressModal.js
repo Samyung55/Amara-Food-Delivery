@@ -47,4 +47,18 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
        dispatch(updateAddress(name,mobNo,pinCode,address,town,state,city,user._id,addressToEdit._id))
        setShow(false)
     }
+
+    return (
+        <div className={`black-scree ${show&&'show'}`} onClick={()=>setShow(false)}>
+        <div className="address-form" onClick={(e)=>e.stopPropagation()}>
+            <form onSubmit={addressToEdit?handleUpdateAddress:handleSubmit} >
+                <input onChange={(e)=>setName(e.target.value)} value={name} type="text" name='name' placeholder='Name' />
+                <input onChange={(e)=>setMobNo(e.target.value)} value={mobNo} type="text" name='mobNo' placeholder='Mobile No.' />
+                <input onChange={(e)=>setPinCode(Number(e.target.value))} value={pinCode} type="text" name='pinCode' placeholder='Pin Code' />
+                <input onChange={(e)=>setAdress(e.target.value)} value={address} type="text" name='address' placeholder='Address' />
+                <input onChange={(e)=>setTown(e.target.value)} value={town} type="text" name='town' placeholder='Locality/Town'/>
+                <input onChange={(e)=>setState(e.target.value)} value={state} type="text"  name='state' placeholder='State' />
+                <input  onChange={(e)=>setCity(e.target.value)} value={city} type="text" name='city' placeholder='City'/>
+  
+    )
 }
