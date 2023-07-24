@@ -51,3 +51,5 @@ const CartItem = ({item}) => {
         </div>
     )
 }
+
+export default CartItemCard
