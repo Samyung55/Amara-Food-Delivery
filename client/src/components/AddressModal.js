@@ -12,5 +12,15 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
     const [town,setTown]=useState('')
     const [city,setCity]=useState('')
 
-    
+    useEffect(() => {
+        if(addressToEdit) {
+           setPinCode(addressToEdit.pinCode)
+           setName(addressToEdit.name)
+           setMobNo(addressToEdit.mobNo)
+           setAdress(addressToEdit.address)
+           setState(addressToEdit.state)
+           setTown(addressToEdit.town)
+           setCity(addressToEdit.city)
+        }
+    }, [addressToEdit])
 }
