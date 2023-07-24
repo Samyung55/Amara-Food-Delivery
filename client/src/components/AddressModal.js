@@ -59,6 +59,10 @@ const AddressModal = ({show, setShow, addressToEdit}) => {
                 <input onChange={(e)=>setTown(e.target.value)} value={town} type="text" name='town' placeholder='Locality/Town'/>
                 <input onChange={(e)=>setState(e.target.value)} value={state} type="text"  name='state' placeholder='State' />
                 <input  onChange={(e)=>setCity(e.target.value)} value={city} type="text" name='city' placeholder='City'/>
-  
+                
+                <div className="submit-btn">
+              <button type='submit'>{addressToEdit?'UPDATE ADDRESS':'ADD ADDRESS'}</button>
+          </div>
+          </form>
     )
 }
