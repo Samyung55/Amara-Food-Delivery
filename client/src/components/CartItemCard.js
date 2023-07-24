@@ -13,6 +13,11 @@ const CartItem = ({item}) => {
 
     const increaseQty = () => {
         setQty(qty + 1)
-        dispatch(upadteCart(item,Number(qty+1)))
+        dispatch(updateCart(item,Number(qty+1)))
     }
+
+    const decreaseQty=()=>{
+        setQty(qty-1)
+        dispatch(upadteCart(item,Number(qty-1)))
+     }
 }
