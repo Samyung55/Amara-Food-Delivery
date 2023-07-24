@@ -7,5 +7,9 @@ import { deleteItem, updateCart } from '../actions/cart'
 const CartItem = ({item}) => {
     const [qty, setQty] = useState(item.qty)
     const dispatch = useDispatch()
+    if(qty < 1) {
+       setQty(1)
+    }
+
     
 }
