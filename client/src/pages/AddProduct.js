@@ -26,3 +26,19 @@ const AddProduct = () => {
         outOfStock:false,
         img
       });
+      
+
+      setLoading(false)
+      setShow(true)  
+    }
+
+    const handleOnChange=(e)=>{
+        const reader = new FileReader();
+        if (e.target.files[0]) {
+          reader.readAsDataURL(e.target.files[0]);
+          setFileName(e.target.files[0]?.name);
+        }
+        reader.onload = (readerEvent) => {
+          setImg(readerEvent.target.result);
+        };
+    }
