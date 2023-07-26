@@ -63,4 +63,15 @@ const MainArea = () => {
                   
               </div>
 
+              <div className={`cat-icon  ${category==='Snaks'&&'active'} `} onClick={()=>setCategory('Snaks')}>
+                  <div className="img">
+
+                  <img src="https://img.icons8.com/color/2x/popcorn.png" alt="pizza" />
+                  </div>
+                  <div className="text">
+                   Snaks
+                  </div>
+                  
+              </div>
+
               
