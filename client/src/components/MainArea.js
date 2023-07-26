@@ -26,24 +26,28 @@ const MainArea = () => {
                 <img className='smaller circle' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Orange_circle_100%25.svg/768px-Orange_circle_100%25.svg.png" alt="" />
                
                 <img className='half circle' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Orange_circle_100%25.svg/768px-Orange_circle_100%25.svg.png" alt="" />
+               
+                
+                
                 </div>
                
-               </div>
-   
-            {/* category area */}
-            <div className='category-area'>
-                <h3>Menu</h3>
-               <div className="category">
-                 <div className={`cat-icon ${category==='pizza'&&'active'} `} onClick={()=>setCategory('pizza')}>
-                     <div className="img">
-   
-                     <img src={pizzaSilce} alt="pizza" />
-                     </div>
-                     <div className="text">
-                      Pizzas
-                     </div>
-                     </div>
-                    <div className={`cat-icon  ${category==='Burger'&&'active'} `} onClick={()=>setCategory('Burger')}>
+            </div>
+
+         {/* category area */}
+         <div className='category-area'>
+             <h3>Menu</h3>
+            <div className="category">
+              <div className={`cat-icon ${category==='pizza'&&'active'} `} onClick={()=>setCategory('pizza')}>
+                  <div className="img">
+
+                  <img src={pizzaSilce} alt="pizza" />
+                  </div>
+                  <div className="text">
+                   Pizzas
+                  </div>
+                  
+              </div>
+              <div className={`cat-icon  ${category==='Burger'&&'active'} `} onClick={()=>setCategory('Burger')}>
                   <div className="img">
 
                   <img src="https://cdn-icons-png.flaticon.com/128/878/878052.png" alt="pizza" />
@@ -52,7 +56,18 @@ const MainArea = () => {
                    Burgers
                   </div>
                   
-                  <div className={`cat-icon  ${category==='Smoothy'&&'active'} `} onClick={()=>setCategory('Smoothy')}>
+              </div>
+              <div className={`cat-icon  ${category==='Sandwich'&&'active'} `} onClick={()=>setCategory('Sandwich')}>
+                  <div className="img">
+
+                  <img src="https://cdn-icons-png.flaticon.com/128/6518/6518098.png" alt="pizza" />
+                  </div>
+                  <div className="text">
+                  Sandwich
+                  </div>
+                  
+              </div>
+              <div className={`cat-icon  ${category==='Smoothy'&&'active'} `} onClick={()=>setCategory('Smoothy')}>
                   <div className="img">
 
                   <img src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/2x/external-ice-cream-carnival-vitaliy-gorbachev-flat-vitaly-gorbachev.png" alt="pizza" />
@@ -62,7 +77,6 @@ const MainArea = () => {
                   </div>
                   
               </div>
-
               <div className={`cat-icon  ${category==='Snaks'&&'active'} `} onClick={()=>setCategory('Snaks')}>
                   <div className="img">
 
@@ -73,7 +87,6 @@ const MainArea = () => {
                   </div>
                   
               </div>
-
               <div className={`cat-icon  ${category==='Drink'&&'active'} `} onClick={()=>setCategory('Drink')}>
                   <div className="img">
 
@@ -84,13 +97,14 @@ const MainArea = () => {
                   </div>
                   
               </div>
-               
-              </div>
+            </div>
             <div className="all-list">
              <Product category={category}/>
             </div>
          </div>
+         
 
-         </div>
+        </div>
     )
 }
+
