@@ -42,3 +42,49 @@ const AddProduct = () => {
           setImg(readerEvent.target.result);
         };
     }
+
+    return (
+        <>
+        <SideBar/>
+        <div className='mainarea admin '>
+            <Header/>
+    
+            <div className='auth'>
+                <div className="form">
+                    <div className="logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4039/4039232.png" alt="" />
+                    </div>
+                    
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" onChange={(e)=>setName(e.target.value)} name='name' placeholder='Product Name'  />
+                        <input type="text" onChange={(e)=>setPrice(e.target.value)} name="price" id="" placeholder='Price'  />
+                        <input type="text" onChange={(e)=>setDes(e.target.value)} name='description' placeholder='description' /> 
+                          <select onChange={(e)=>setCategory(e.target.value)} >
+                           <option value="">Category</option>
+                           <option value="pizza">pizza</option>
+                           <option value="Burger">burger</option>
+                           <option value="Sandwich">sandwich</option>
+                           <option value="Smoothy">smoothy</option>
+                           <option value="Snak">snak</option>
+                           <option value="Drink">drink</option>
+                          </select>
+                        <label htmlFor="file">{fileName}</label>
+                        <input type="file" id='file' onChange={handleOnChange} />
+                        <button type="submit">{ loading?<Spinner/>:'Add'}</button>
+                    </form>
+                    
+                </div>
+            </div>
+    
+        </div>
+    
+        <Message
+     showModal={show}
+     msg={"Product Added Successfuly"}
+     img={"https://cdn.dribbble.com/users/335541/screenshots/7102045/media/5b7237fe7bbfa31531d6e765576f1bc4.jpg?compress=1&resize=400x300"}
+     type="error"
+     closeModal={setShow}
+    />
+        </>
+      )
+    }
