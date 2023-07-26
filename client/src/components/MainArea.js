@@ -51,3 +51,14 @@ const MainArea = () => {
                   <div className="text">
                    Burgers
                   </div>
+                  </div>
+              <div className={`cat-icon  ${category==='Sandwich'&&'active'} `} onClick={()=>setCategory('Sandwich')}>
+                  <div className="img">
+
+                  <img src="https://cdn-icons-png.flaticon.com/128/6518/6518098.png" alt="pizza" />
+                  </div>
+                  <div className="text">
+                  Sandwich
+                  </div>
+                  
+              </div>
