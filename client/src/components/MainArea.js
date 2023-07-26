@@ -85,3 +85,8 @@ const MainArea = () => {
                   
               </div>
                
+              </div>
+            <div className="all-list">
+             <Product category={category}/>
+            </div>
+         </div>
