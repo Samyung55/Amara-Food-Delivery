@@ -20,3 +20,35 @@ const SideBar = () => {
  const handleSignOut =()=>{
        dispatch(logout())
  }
+
+ return (
+    <div className={`sidebar  ${show&&'showSideBar'}`}  >
+        <div className="close" onClick={()=>dispatch(showSideBar(false))}>
+            <FaTimes/>
+        </div>
+        <div className="top-icons">
+        <Link to="/"><div className={`icon ${path==='/'&&'active'}`}>
+            <FaHome/>
+        </div></Link>
+        <Link to="/orders"><div className={`icon ${path==='/orders'&&'active'}`}>
+            <FaBoxOpen/>
+        </div></Link>
+        <Link to='/wishlist'> <div className={`icon ${path==='/wishlist'&&'active'}`}>
+            <BsHeartHalf/>
+        </div></Link>
+       <Link to="/your-address"> <div className={`icon ${path==='/your-address'&&'active'}`}>
+            <CgFileDocument/>
+        </div></Link>
+       
+        <Link to='/profile'><div className={`icon ${path==='/profile'&&'active'}`}>
+            <BsGear/>
+        </div></Link>
+        </div>
+        <div className="bottom-icon">
+        {user&&(<div className="icon" onClick={handleSignOut}>
+        <FiLogOut/>
+        </div>)}
+        </div>
+    </div>
+)
+}
