@@ -46,5 +46,29 @@ const LeftSide = ({data ,show}) => {
                   }
               </div>)}
         </div>
+       { show?null:(<div className="sidebar-msg">
+            <div className="img">
+                <img src={delivery} alt="" />
+            </div>
+            <div className="text">
+                <h2>Safe Delivery <span>@</span> your doors</h2>
+            </div>
+        </div>)}
+       { show?null:(<div className="side-cart-area">
+            <div className="text">
+                <h4>Order Menu</h4>
+                <Link to='/cart'><p>Veiw All <BsFillArrowRightSquareFill/></p></Link>
+            </div>
+        <div className='cart-area'>
+                  <div className="all-items side-cart">
+                   {cartItems.slice(0,3).map((item)=>(
+                       <CartItemCard key={item.product} item={item}/>
+                   ))}
+                  {cartItems.length>0&&<Link to="/cart"><button>PROCEED TO CHECKOUT</button></Link>}
+                  </div>
+            </div>
+        </div>)}
        
+        
+    </div>
 )
