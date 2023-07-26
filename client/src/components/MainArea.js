@@ -26,4 +26,19 @@ const MainArea = () => {
                 <img className='smaller circle' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Orange_circle_100%25.svg/768px-Orange_circle_100%25.svg.png" alt="" />
                
                 <img className='half circle' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Orange_circle_100%25.svg/768px-Orange_circle_100%25.svg.png" alt="" />
+                </div>
                
+               </div>
+   
+            {/* category area */}
+            <div className='category-area'>
+                <h3>Menu</h3>
+               <div className="category">
+                 <div className={`cat-icon ${category==='pizza'&&'active'} `} onClick={()=>setCategory('pizza')}>
+                     <div className="img">
+   
+                     <img src={pizzaSilce} alt="pizza" />
+                     </div>
+                     <div className="text">
+                      Pizzas
+                     </div>
