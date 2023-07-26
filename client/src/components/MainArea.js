@@ -51,14 +51,16 @@ const MainArea = () => {
                   <div className="text">
                    Burgers
                   </div>
-                  </div>
-              <div className={`cat-icon  ${category==='Sandwich'&&'active'} `} onClick={()=>setCategory('Sandwich')}>
+                  
+                  <div className={`cat-icon  ${category==='Smoothy'&&'active'} `} onClick={()=>setCategory('Smoothy')}>
                   <div className="img">
 
-                  <img src="https://cdn-icons-png.flaticon.com/128/6518/6518098.png" alt="pizza" />
+                  <img src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/2x/external-ice-cream-carnival-vitaliy-gorbachev-flat-vitaly-gorbachev.png" alt="pizza" />
                   </div>
                   <div className="text">
-                  Sandwich
+                   Smoothy
                   </div>
                   
               </div>
+
+              
