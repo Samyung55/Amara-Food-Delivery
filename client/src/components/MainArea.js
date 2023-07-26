@@ -90,3 +90,7 @@ const MainArea = () => {
              <Product category={category}/>
             </div>
          </div>
+
+         </div>
+    )
+}
