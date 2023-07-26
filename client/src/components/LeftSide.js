@@ -72,3 +72,9 @@ const LeftSide = ({data ,show}) => {
         
     </div>
 )
+
+}
+
+
+export default LeftSide
+
