@@ -7,6 +7,7 @@ import {RiAddFill} from 'react-icons/ri'
 import { getAdress } from '../actions/address';
 import AddressModal from '../components/AddressModal';
 import LeftSide from '../components/LeftSide';
+
 const Address = () => {
     const allAdress = useSelector(state=>state.address.addressItems)
     const user = useSelector(state=>state.user.user)
@@ -62,3 +63,5 @@ const Address = () => {
     </>
   )
 }
+
+export default Address
